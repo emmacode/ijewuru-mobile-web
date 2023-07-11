@@ -1,0 +1,11 @@
+.authLink_active {
+  border-bottom: 1px solid #fa4a0c;
+}
+
+.authInput {
+  padding: 12px 12px 12px 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #000;
+}
