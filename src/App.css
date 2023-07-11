@@ -10,6 +10,14 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 @media screen and (min-width: 1440px) {
   .app {
     width: 1440px;

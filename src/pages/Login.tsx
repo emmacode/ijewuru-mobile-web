@@ -1,11 +1,15 @@
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import authlogo from "../asset/image/authlogo.svg";
-import { AuthForm } from "../component/Form";
-import { useState } from "react";
+import { Form } from "../component/Form";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -26,19 +30,23 @@ export const Login = () => {
         <div className="flex justify-between mt-14">
           <NavLink
             to="/login"
-            className={({ isActive }) =>
-              isActive
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
                 ? "authLink_active text-black text-lg font-semibold"
-                : "text-black text-lg font-semibold"
+                : ""
             }
           >
             Login
           </NavLink>
           <NavLink
             to="/signup"
-            className={({ isActive }) =>
-              isActive
-                ? "authLink_active text-black text-lg font-semibold"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                ? ""
                 : "text-black text-lg font-semibold"
             }
           >
@@ -48,9 +56,9 @@ export const Login = () => {
       </div>
 
       <div className="py-[62px] px-[50px] h-full">
-        <form>
+        <form autoComplete="off">
           <div>
-            <AuthForm
+            <Form
               name="email"
               divClass="flex flex-col"
               label="Email address"
@@ -64,7 +72,7 @@ export const Login = () => {
           </div>
 
           <div className="mt-[46px]">
-            <AuthForm
+            <Form
               name="password"
               divClass="flex flex-col"
               label="Password"
@@ -82,7 +90,7 @@ export const Login = () => {
           </p>
 
           <div className="mt-[136px] flex justify-center">
-            <button className="bg-pc text-[17px] font-semibold text-[#F6F6F9] py-[25px] px-[100px] outline-none rounded-full">
+            <button className="bg-pc text-[17px] font-semibold text-[#F6F6F9]  py-[16px] px-[64px] outline-none rounded-full">
               Login
             </button>
           </div>

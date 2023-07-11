@@ -1,17 +1,23 @@
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import authlogo from "../asset/image/authlogo.svg";
-import { AuthForm } from "../component/Form";
-import { useState } from "react";
+import { Form } from "../component/Form";
 
 export const Signup = () => {
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-
-    if (name === "email") {
+    if (name === "firstName") {
+      setFirstName(value);
+    } else if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
@@ -29,9 +35,11 @@ export const Signup = () => {
         <div className="flex justify-between mt-14">
           <NavLink
             to="/login"
-            className={(isActive) =>
-              isActive
-                ? "authLink_active text-black text-lg font-semibold"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
+                ? ""
                 : "text-black text-lg font-semibold"
             }
           >
@@ -39,10 +47,12 @@ export const Signup = () => {
           </NavLink>
           <NavLink
             to="/signup"
-            className={(isActive) =>
-              isActive
+            className={({ isActive, isPending }) =>
+              isPending
+                ? ""
+                : isActive
                 ? "authLink_active text-black text-lg font-semibold"
-                : "text-black text-lg font-semibold"
+                : ""
             }
           >
             Signup
@@ -53,7 +63,21 @@ export const Signup = () => {
       <div className="py-[62px] px-[50px] h-full">
         <form>
           <div>
-            <AuthForm
+            <Form
+              name="firstName"
+              divClass="flex flex-col"
+              label="First Name"
+              labelClass="text-[15px] text-black font-semibold opacity-40"
+              type="text"
+              onChange={handleChange}
+              value={firstName}
+              placeholder="Moyin"
+              className="authInput outline-none text-black placeholder:text-black bg-transparent"
+            />
+          </div>
+
+          <div className="mt-[46px]">
+            <Form
               name="email"
               divClass="flex flex-col"
               label="Email address"
@@ -67,7 +91,7 @@ export const Signup = () => {
           </div>
 
           <div className="mt-[46px]">
-            <AuthForm
+            <Form
               name="password"
               divClass="flex flex-col"
               label="Password"
@@ -81,7 +105,7 @@ export const Signup = () => {
           </div>
 
           <div className="mt-[46px]">
-            <AuthForm
+            <Form
               name="confirm_password"
               divClass="flex flex-col"
               label="Confirm Password"
@@ -95,7 +119,7 @@ export const Signup = () => {
           </div>
 
           <div className="mt-[136px] flex justify-center">
-            <button className="bg-pc text-[17px] font-semibold text-[#F6F6F9] py-[25px] px-[100px] outline-none rounded-full">
+            <button className="bg-pc text-[17px] font-semibold text-[#F6F6F9]  py-[16px] px-[64px] outline-none rounded-full">
               Signup
             </button>
           </div>

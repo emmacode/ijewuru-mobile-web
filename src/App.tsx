@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 
 import "./App.css";
 import "./asset/css/style.css";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );
