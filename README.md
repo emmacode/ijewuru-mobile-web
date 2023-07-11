@@ -2,13 +2,13 @@
 
 I saw the design online and it was originally designed for a mobile app. But thought to play around with it on the web using React Js and Typescript.
 
-## Design Link
-
-[figma](https://www.figma.com/file/KawxNnCZ1epHjQu0wSqlG2/Food-delivery-app-Ui-kit?node-id=298%3A40&mode=dev)
-
 ## Available Scripts
 
 In the project directory, you can run:
+
+### Design Link
+
+[figma](https://www.figma.com/file/KawxNnCZ1epHjQu0wSqlG2/Food-delivery-app-Ui-kit?node-id=298%3A40&mode=dev)
 
 ### `npm start`
 
