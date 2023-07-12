@@ -1,8 +1,10 @@
+import { styled } from "styled-components";
+
 interface FormProps {
   divClass?: string;
   label?: string;
   labelClass?: string;
-  type: string;
+  type?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
   placeholder?: string;
@@ -49,7 +51,6 @@ export const Radio: React.FC<RadioProps> = (props) => {
     divClass,
     label,
     labelClass,
-    type,
     onChange,
     value,
     name,
@@ -60,19 +61,34 @@ export const Radio: React.FC<RadioProps> = (props) => {
   } = props;
 
   return (
-    <div className={divClass}>
-      <div className={radioLabel}>
-        <img src={image} alt="" />
-        <label className={labelClass}>{label}</label>
-      </div>
+    <RadioItem className={divClass}>
       <input
-        type={type}
+        type="radio"
         name={name}
         onChange={onChange}
         value={value}
         className={className}
         checked={checked}
+        id="specifyColor"
       />
-    </div>
+      <RadioLabel className={radioLabel}>
+        <img src={image} alt="" />
+        <label className={labelClass}>{label}</label>
+      </RadioLabel>
+    </RadioItem>
   );
 };
+
+export const RadioItem = styled.div`
+  display: flex;
+  align-items: center;
+
+  input[type="radio"]#specifyColor {
+    accent-color: #fa4a0c;
+  }
+`;
+
+export const RadioLabel = styled.div`
+  display: flex;
+  align-items: center;
+`;

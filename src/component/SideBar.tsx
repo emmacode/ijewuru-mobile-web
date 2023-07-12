@@ -2,37 +2,37 @@ import ReactDOM from "react-dom";
 import * as React from "react";
 import styled from "styled-components";
 
-export interface ModalProps {
+export interface SidebarProps {
   isOpen: boolean;
   bg: string;
 }
-export default function Modal(props: React.PropsWithChildren<ModalProps>) {
+export function Sidebar(props: React.PropsWithChildren<SidebarProps>) {
   const { isOpen, bg } = props;
 
   const el = React.useRef(document.createElement("div"));
-  const modalRoot = document.getElementById("modal-root");
+  const sidebarRoot = document.getElementById("sidebar-root");
 
   React.useEffect(() => {
     const _el = el.current;
-    modalRoot?.appendChild(_el);
+    sidebarRoot?.appendChild(_el);
 
     return () => {
-      modalRoot?.removeChild(_el);
+      sidebarRoot?.removeChild(_el);
     };
-  }, [modalRoot]);
+  }, [sidebarRoot]);
 
   if (!isOpen) return null;
 
   const sidebar = (
-    <ModalContainer data-testid="modal">
-      <ModalContent bg={bg}>{props.children}</ModalContent>
-    </ModalContainer>
+    <SidebarContainer data-testid="sidebar">
+      <SidebarContent $bg={bg}>{props.children}</SidebarContent>
+    </SidebarContainer>
   );
 
   return ReactDOM.createPortal(sidebar, el.current);
 }
 
-const ModalContainer = styled.div`
+const SidebarContainer = styled.div`
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -44,7 +44,7 @@ const ModalContainer = styled.div`
   z-index: 999;
 `;
 
-const ModalContent = styled.div<{ bg?: string }>`
+const SidebarContent = styled.div<{ $bg?: string }>`
   width: 250px;
   height: 100%;
   max-width: 100%;
@@ -52,6 +52,6 @@ const ModalContent = styled.div<{ bg?: string }>`
   left: 0%;
   top: 0%;
   bottom: 0%;
-  background: ${(props) => props.bg};
+  background: ${(props) => props.$bg};
   overflow-y: auto;
 `;

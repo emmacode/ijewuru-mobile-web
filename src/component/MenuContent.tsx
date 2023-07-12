@@ -6,6 +6,7 @@ import offerIcon from "../asset/image/orderIcon.svg";
 import privacyIcon from "../asset/image/privacyIcon.svg";
 import securityIcon from "../asset/image/securityIcon.svg";
 import forwardArrow from "../asset/image/forwardarrow.svg";
+import { Link } from "react-router-dom";
 
 interface MenuContentProps {
   handleClose: () => void;
@@ -13,21 +14,25 @@ interface MenuContentProps {
 
 export const MenuContent = ({ handleClose }: MenuContentProps) => {
   const sidebarLinks = [
-    { icon: profileIcon, name: "Profile" },
-    { icon: orderIcon, name: "Orders" },
-    { icon: offerIcon, name: "Offer and Promo" },
-    { icon: privacyIcon, name: "Privacy Policy" },
-    { icon: securityIcon, name: "Security" },
+    { icon: profileIcon, label: "Profile", path: "/profile" },
+    { icon: orderIcon, label: "Orders", path: "/" },
+    { icon: offerIcon, label: "Offer and Promo", path: "/" },
+    { icon: privacyIcon, label: "Privacy Policy", path: "/" },
+    { icon: securityIcon, label: "Security", path: "/" },
   ];
 
   const renderedLinks = sidebarLinks.map((sidebarLink) => {
     return (
-      <div className="flex items-center mb-6" key={sidebarLink.name}>
+      <Link
+        className="flex items-center mb-6"
+        key={sidebarLink.label}
+        to={sidebarLink.path}
+      >
         <img className="mr-3 w-6 pb-6" src={sidebarLink.icon} alt="" />
         <p className="text-white text-base font-semibold border-b border-[#f4f4f8] font-pop pb-6 w-full">
-          {sidebarLink.name}
+          {sidebarLink.label}
         </p>
-      </div>
+      </Link>
     );
   });
 
