@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import authlogo from "../asset/image/authlogo.svg";
-import { Form } from "../component/Form";
+
+import { Form } from "../../component/Form";
+import { inputClass, labelClass, buttonClass } from "../classnames";
+
+import authlogo from "../../asset/image/authlogo.svg";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +26,10 @@ export const Login = () => {
 
   return (
     <div className="bg-[#F2F2F2]">
-      <div className="flex flex-col px-12 shadow-3xl rounded-b-3xl bg-white">
+      <div
+        className="flex flex-col px-12 
+      shadow-3xl rounded-b-3xl bg-white"
+      >
         <div className="mt-12 flex justify-center">
           <img src={authlogo} className="w-36" alt="" />
         </div>
@@ -55,19 +61,19 @@ export const Login = () => {
         </div>
       </div>
 
-      <div className="py-[62px] px-[50px] h-full">
+      <div className="pt-[62px] pb-3 px-[50px] h-full">
         <form autoComplete="off">
           <div>
             <Form
               name="email"
               divClass="flex flex-col"
               label="Email address"
-              labelClass="text-[15px] text-black font-semibold opacity-40"
+              labelClass={labelClass}
               type="text"
               onChange={handleChange}
               value={email}
               placeholder="moyinoluwa@gmail.com"
-              className="authInput outline-none text-black placeholder:text-black bg-transparent"
+              className={inputClass}
             />
           </div>
 
@@ -76,12 +82,12 @@ export const Login = () => {
               name="password"
               divClass="flex flex-col"
               label="Password"
-              labelClass="text-[15px] text-black font-semibold opacity-40"
+              labelClass={labelClass}
               type="password"
               onChange={handleChange}
               value={password}
               placeholder="* * * * * * * * "
-              className="authInput outline-none text-black placeholder:text-black bg-transparent"
+              className={inputClass}
             />
           </div>
 
@@ -89,10 +95,8 @@ export const Login = () => {
             Forgot password?
           </p>
 
-          <div className="mt-[136px] flex justify-center">
-            <button className="bg-pc text-[17px] font-semibold text-[#F6F6F9]  py-[16px] px-[64px] outline-none rounded-full">
-              Login
-            </button>
+          <div className="mt-[90px] flex justify-center">
+            <button className={buttonClass}>Login</button>
           </div>
         </form>
       </div>
