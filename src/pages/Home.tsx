@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { NavLink } from "react-router-dom";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 
-import { Sidebar } from "../component/Sidebar";
+import { Sidebar } from "../component/SideBar";
 import { MenuContent } from "../component/MenuContent";
+import { Search } from "../component/Search";
+import { ItemsTab } from "./ItemsTab";
 
 import homemenu from "../asset/image/homemenu.svg";
 import shoppingcart from "../asset/image/shoppingcart.svg";
-import { Search } from "../component/Search";
-import { ItemsTab } from "./ItemsTab";
-import { NavLink } from "react-router-dom";
 
 export interface TabProps {
   id: string;
