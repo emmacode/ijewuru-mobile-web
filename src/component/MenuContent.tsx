@@ -1,4 +1,4 @@
-import { IoCloseOutline } from "react-icons/io5";
+import CloseIcon from "@mui/icons-material/Close";
 
 import profileIcon from "../asset/image/profileIcon.svg";
 import orderIcon from "../asset/image/orderIcon.svg";
@@ -15,8 +15,8 @@ interface MenuContentProps {
 export const MenuContent = ({ handleClose }: MenuContentProps) => {
   const sidebarLinks = [
     { icon: profileIcon, label: "Profile", path: "/profile" },
-    { icon: orderIcon, label: "Orders", path: "/" },
-    { icon: offerIcon, label: "Offer and Promo", path: "/" },
+    { icon: orderIcon, label: "Orders", path: "/orders" },
+    { icon: offerIcon, label: "Offer and Promo", path: "/offers" },
     { icon: privacyIcon, label: "Privacy Policy", path: "/" },
     { icon: securityIcon, label: "Security", path: "/" },
   ];
@@ -37,17 +37,24 @@ export const MenuContent = ({ handleClose }: MenuContentProps) => {
   });
 
   return (
-    <div className="pt-5 px-9">
-      <div className="flex justify-end">
-        <IoCloseOutline onClick={handleClose} className="text-white text-4xl" />
+    <>
+      <div className="flex justify-end pt-2 pr-2">
+        <CloseIcon
+          onClick={handleClose}
+          className="text-white"
+          sx={{ width: 35, height: 35 }}
+        />
       </div>
+      <div className="pt-5 px-9 pb-24 flex flex-col h-screen">
+        <div className="mt-16">{renderedLinks}</div>
 
-      <div className="mt-16">{renderedLinks}</div>
-
-      <div className="flex items-center mt-40">
-        <p className="text-white font-pop text-base font-semibold">Sign-out</p>
-        <img src={forwardArrow} className="ml-3" alt="" />
+        <div className="flex items-center mt-auto">
+          <p className="text-white font-pop text-base font-semibold">
+            Sign-out
+          </p>
+          <img src={forwardArrow} className="ml-3" alt="" />
+        </div>
       </div>
-    </div>
+    </>
   );
 };

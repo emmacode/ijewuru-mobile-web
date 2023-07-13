@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
+import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 
 import { Sidebar } from "../component/Sidebar";
 import { MenuContent } from "../component/MenuContent";
 
 import homemenu from "../asset/image/homemenu.svg";
 import shoppingcart from "../asset/image/shoppingcart.svg";
-import searchIcon from "../asset/image/searchIcon.svg";
-import { Form } from "../component/Form";
+import { Search } from "../component/Search";
 import { ItemsTab } from "./ItemsTab";
+import { NavLink } from "react-router-dom";
 
 export interface TabProps {
   id: string;
@@ -16,16 +20,16 @@ export interface TabProps {
 
 export const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleOpen = () => {
     setIsOpen(true);
   };
   const handleClose = () => {
     setIsOpen(false);
-  };
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
   };
 
   const tabs: TabProps[] = [
@@ -37,7 +41,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="bg-[#F2F2F2] pt-[65px] h-screen">
+      <div className="bg-[#F2F2F2] pt-[65px] pb-[47px] flex flex-col h-screen">
         <div className="flex justify-between mx-[30px]">
           <img src={homemenu} onClick={handleOpen} alt="" />
           <img src={shoppingcart} alt="" />
@@ -52,35 +56,27 @@ export const Home = () => {
           food for you
         </h1>
 
-        <div
-          className="
-        flex items-center 
-        mt-7 mx-[30px]  px-8 py-5
-        rounded-3xl bg-[#efeeee]"
-        >
-          <img src={searchIcon} alt="" className="mr-4" />
-          <Form
-            type="text"
-            name="search"
-            onChange={handleSearch}
-            value={searchText}
-            placeholder="Search"
-            className="
-            bg-transparent
-            font-pop font-semibold text-base
-            outline-none w-full 
-            text-black opacity-50
-            placeholder:font-pop
-            placeholder:opacity-50 
-            placeholder:text-black 
-            placeholder:text-base
-            placeholder:font-semibold
-            "
-          />
+        <div className="mt-7 mx-[30px]">
+          <Search />
         </div>
 
         <div className="mt-11 mx-[30px]">
           <ItemsTab tabs={tabs} />
+        </div>
+
+        <div className="flex justify-between mt-auto mx-[30px]">
+          <NavLink to="/">
+            <HomeOutlinedIcon sx={{ color: "#adadaf" }} />
+          </NavLink>
+          <NavLink to="/favourite">
+            <FavoriteBorderOutlinedIcon sx={{ color: "#adadaf" }} />
+          </NavLink>
+          <NavLink to="/profile">
+            <Person2OutlinedIcon sx={{ color: "#adadaf" }} />
+          </NavLink>
+          <NavLink to="/history">
+            <HistoryRoundedIcon sx={{ color: "#adadaf" }} />
+          </NavLink>
         </div>
       </div>
 

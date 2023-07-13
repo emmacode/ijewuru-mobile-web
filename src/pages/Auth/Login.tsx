@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { Form } from "../../component/Form";
-import { inputClass, labelClass, buttonClass } from "./class";
+import { inputClass, labelClass, buttonClass } from "../classnames";
 
 import authlogo from "../../asset/image/authlogo.svg";
 
@@ -61,7 +61,7 @@ export const Login = () => {
         </div>
       </div>
 
-      <div className="py-[62px] px-[50px] h-full">
+      <div className="pt-[62px] pb-3 px-[50px] h-full">
         <form autoComplete="off">
           <div>
             <Form
@@ -95,7 +95,7 @@ export const Login = () => {
             Forgot password?
           </p>
 
-          <div className="mt-[136px] flex justify-center">
+          <div className="mt-[90px] flex justify-center">
             <button className={buttonClass}>Login</button>
           </div>
         </form>

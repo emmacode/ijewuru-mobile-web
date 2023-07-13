@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 //import { Radio } from "../component/Form";
 
-import avatar from "../asset/image/avatar.svg";
-import chevronleft from "../asset/image/chevronleft.svg";
-import edit from "../asset/image/editIcon.svg";
-import { buttonClass } from "./Auth/class";
+import avatar from "../../asset/image/avatar.svg";
+import chevronleft from "../../asset/image/chevronleft.svg";
+import edit from "../../asset/image/editIcon.svg";
+import { buttonClass } from "../classnames";
 // import cardIcon from "../asset/image/cardIcon.svg";
 // import bankIcon from "../asset/image/bankIcon.svg";
 // import paypalIcon from "../asset/image/paypalIcon.svg";
