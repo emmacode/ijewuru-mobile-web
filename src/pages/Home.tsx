@@ -7,7 +7,7 @@ import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 
 import { Sidebar } from "../component/SideBar";
 import { MenuContent } from "../component/MenuContent";
-import { Search } from "../component/Search";
+import { Search } from "./Search/Search";
 import { ItemsTab } from "./ItemsTab";
 
 import homemenu from "../asset/image/homemenu.svg";
