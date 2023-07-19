@@ -5,7 +5,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 
-import { Sidebar } from "../component/SideBar";
+import { Modal } from "../component/Modal";
 import { MenuContent } from "../component/MenuContent";
 import { Search } from "./Search/Search";
 import { ItemsTab } from "./ItemsTab";
@@ -80,9 +80,9 @@ export const Home = () => {
         </div>
       </div>
 
-      <Sidebar bg="#fa4a0c" isOpen={isOpen}>
+      <Modal bg="#fa4a0c" isOpen={isOpen}>
         <MenuContent handleClose={handleClose} />
-      </Sidebar>
+      </Modal>
     </>
   );
 };
