@@ -5,7 +5,6 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 
-import { Modal } from "../component/Modal";
 import { MenuContent } from "../component/MenuContent";
 import { Search } from "./Search/Search";
 import { ItemsTab } from "./ItemsTab";
@@ -31,6 +30,10 @@ export const Home = () => {
   const handleClose = () => {
     setIsOpen(false);
   };
+  const sidepanelStyle = {
+    width: isOpen ? "250px" : "0",
+    transition: "width 0.5s ease",
+  };
 
   const tabs: TabProps[] = [
     { id: "tab1", title: "Foods" },
@@ -43,8 +46,23 @@ export const Home = () => {
     <>
       <div className="bg-[#F2F2F2] pt-[65px] pb-[47px] flex flex-col h-screen">
         <div className="flex justify-between mx-[30px]">
-          <img src={homemenu} onClick={handleOpen} alt="" />
-          <img src={shoppingcart} alt="" />
+          <div>
+            <img
+              src={homemenu}
+              className="cursor-pointer"
+              onClick={handleOpen}
+              alt=""
+            />
+            {isOpen && (
+              <MenuContent
+                sidepanelStyle={sidepanelStyle}
+                handleClose={handleClose}
+              />
+            )}
+          </div>
+          <div>
+            <img src={shoppingcart} alt="" />
+          </div>
         </div>
 
         <h1
@@ -79,10 +97,6 @@ export const Home = () => {
           </NavLink>
         </div>
       </div>
-
-      <Modal bg="#fa4a0c" isOpen={isOpen}>
-        <MenuContent handleClose={handleClose} />
-      </Modal>
     </>
   );
 };

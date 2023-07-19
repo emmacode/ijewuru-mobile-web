@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 
 import profileIcon from "../asset/image/profileIcon.svg";
@@ -10,9 +11,13 @@ import { Link } from "react-router-dom";
 
 interface MenuContentProps {
   handleClose: () => void;
+  sidepanelStyle: React.CSSProperties;
 }
 
-export const MenuContent = ({ handleClose }: MenuContentProps) => {
+export const MenuContent = ({
+  handleClose,
+  sidepanelStyle,
+}: MenuContentProps) => {
   const sidebarLinks = [
     { icon: profileIcon, label: "Profile", path: "/profile" },
     { icon: orderIcon, label: "Orders", path: "/orders" },
@@ -38,23 +43,36 @@ export const MenuContent = ({ handleClose }: MenuContentProps) => {
 
   return (
     <>
-      <div className="flex justify-end pt-2 pr-2">
-        <CloseIcon
-          onClick={handleClose}
-          className="text-white"
-          sx={{ width: 35, height: 35 }}
-        />
-      </div>
-      <div className="pt-5 px-9 pb-24 flex flex-col h-screen">
-        <div className="mt-16">{renderedLinks}</div>
-
-        <div className="flex items-center mt-auto">
-          <p className="text-white font-pop text-base font-semibold">
-            Sign-out
-          </p>
-          <img src={forwardArrow} className="ml-3" alt="" />
+      <Panel style={sidepanelStyle}>
+        <div className="flex justify-end pt-2 pr-2">
+          <CloseIcon
+            onClick={handleClose}
+            className="text-white cursor-pointer"
+            sx={{ width: 35, height: 35 }}
+          />
         </div>
-      </div>
+        <div className="pt-5 px-9 pb-24 flex flex-col h-screen">
+          <div className="mt-16">{renderedLinks}</div>
+
+          <div className="flex items-center mt-auto">
+            <p className="text-white font-pop text-base font-semibold">
+              Sign-out
+            </p>
+            <img src={forwardArrow} className="ml-3" alt="" />
+          </div>
+        </div>
+      </Panel>
     </>
   );
 };
+
+const Panel = styled.div`
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fa4a0c;
+  overflow-x: hidden;
+`;

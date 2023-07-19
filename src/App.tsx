@@ -11,6 +11,7 @@ import { Favourite } from "./pages/UserData/Favourite";
 import { History } from "./pages/UserData/History";
 import { Orders } from "./pages/UserData/Orders";
 import { Offer } from "./pages/UserData/Offer";
+import { ItemView } from "./pages/ItemView";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/offers" element={<Offer />} />
+        <Route path="/item:id" element={<ItemView />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
