@@ -8,6 +8,7 @@ import {
 
 import food from "../asset/image/fooddisplay.svg";
 import { buttonClass } from "./classnames";
+import { useNavigate } from "react-router-dom";
 
 export const ItemDetails = () => {
   const [isAddedToFavorite, setIsAddedToFavorite] = useState(false);
@@ -18,12 +19,13 @@ export const ItemDetails = () => {
   const handleRemoveFromFavorite = () => {
     setIsAddedToFavorite(false);
   };
+  const navigate = useNavigate();
 
   return (
     <>
       <div className="px-[30px] py-14 bg-[#f5f5f8] h-full">
         <div className="flex justify-between items-center">
-          <ChevronLeft />
+          <ChevronLeft onClick={() => navigate(-1)} />
           {isAddedToFavorite ? (
             <FavButton onClick={handleRemoveFromFavorite}>
               <Favorite className="text-pc" />

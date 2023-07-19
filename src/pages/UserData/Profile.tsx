@@ -1,10 +1,10 @@
 //import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ChevronLeft } from "@mui/icons-material";
 
 //import { Radio } from "../component/Form";
 
 import avatar from "../../asset/image/avatar.svg";
-import chevronleft from "../../asset/image/chevronleft.svg";
 import edit from "../../asset/image/editIcon.svg";
 import { buttonClass } from "../classnames";
 // import cardIcon from "../asset/image/cardIcon.svg";
@@ -31,7 +31,7 @@ export const Profile = () => {
     <>
       <div className="px-[30px] py-14 bg-[#f5f5f8] h-screen">
         <div className="flex flex-row items-center">
-          <img src={chevronleft} onClick={() => navigate(-1)} alt="" />
+          <ChevronLeft onClick={() => navigate(-1)} />
           <p className="flex justify-center w-full text-black text-lg font-semibold">
             My profile
           </p>
