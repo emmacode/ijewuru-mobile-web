@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Form } from "./Form";
+import { Form } from "../../component/Form";
 
-import searchIcon from "../asset/image/searchIcon.svg";
+import searchIcon from "../../asset/image/searchIcon.svg";
 
 export const Search = () => {
   const [searchText, setSearchText] = useState("");
