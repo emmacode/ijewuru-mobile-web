@@ -12,6 +12,7 @@ import { History } from "./pages/UserData/History";
 import { Orders } from "./pages/UserData/Orders";
 import { Offer } from "./pages/UserData/Offer";
 import { ItemDetails } from "./pages/ItemDetails";
+import { Cart } from "./pages/Cart";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/orders" element={<Orders />} />
         <Route path="/offers" element={<Offer />} />
         <Route path="/item:id" element={<ItemDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
