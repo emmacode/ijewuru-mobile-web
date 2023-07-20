@@ -28,6 +28,7 @@ function App() {
         <Route path="/offers" element={<Offer />} />
         <Route path="/item:id" element={<ItemDetails />} />
         <Route path="/cart" element={<Cart />} />
+
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
