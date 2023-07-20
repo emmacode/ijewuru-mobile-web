@@ -6,7 +6,7 @@ import {
   Favorite,
 } from "@mui/icons-material";
 
-import food from "../asset/image/fooddisplay.svg";
+import food from "../asset/image/fooddisplay.jpeg";
 import { buttonClass } from "./classnames";
 import { useNavigate } from "react-router-dom";
 
