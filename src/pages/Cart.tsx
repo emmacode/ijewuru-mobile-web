@@ -38,6 +38,7 @@ export const Cart = () => {
   const navigate = useNavigate();
   const maxLength = 10;
   const minSwipeDistance = -30;
+  let downX: number;
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -63,8 +64,6 @@ export const Cart = () => {
     downX = e.clientX;
     e.currentTarget.addEventListener("pointermove", onPointerMove);
   };
-
-  let downX: number;
 
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     e.currentTarget.removeEventListener("pointermove", onPointerMove);

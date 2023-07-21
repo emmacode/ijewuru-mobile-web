@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { NavLink } from "react-router-dom";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
-import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
+import {
+  MenuOutlined,
+  ShoppingCartOutlined,
+  HomeOutlined,
+  FavoriteBorderOutlined,
+  Person2Outlined,
+  HistoryRounded,
+} from "@mui/icons-material";
 
 import { MenuContent } from "../component/MenuContent";
 import { Search } from "./Search/Search";
 import { ItemsTab } from "./ItemsTab";
-
-import homemenu from "../asset/image/homemenu.svg";
-import shoppingcart from "../asset/image/shoppingcart.svg";
-
 export interface TabProps {
   id: string;
   title: string;
@@ -44,14 +44,13 @@ export const Home = () => {
 
   return (
     <>
-      <div className="bg-[#F2F2F2] pt-[65px] pb-[47px] flex flex-col h-screen">
+      <div className="bg-[#F2F2F2] pt-[50px] pb-2 flex flex-col h-screen">
         <div className="flex justify-between mx-[30px]">
           <div>
-            <img
-              src={homemenu}
-              className="cursor-pointer"
+            <MenuOutlined
               onClick={handleOpen}
-              alt=""
+              className="cursor-pointer"
+              sx={{ color: "#adadaf" }}
             />
             {isOpen && (
               <MenuContent
@@ -61,7 +60,7 @@ export const Home = () => {
             )}
           </div>
           <div>
-            <img src={shoppingcart} alt="" />
+            <ShoppingCartOutlined sx={{ color: "#adadaf", width: "24px" }} />
           </div>
         </div>
 
@@ -84,16 +83,16 @@ export const Home = () => {
 
         <div className="flex justify-between mt-auto mx-[30px]">
           <NavLink to="/">
-            <HomeOutlinedIcon sx={{ color: "#adadaf" }} />
+            <HomeOutlined sx={{ color: "#adadaf" }} />
           </NavLink>
           <NavLink to="/favourite">
-            <FavoriteBorderOutlinedIcon sx={{ color: "#adadaf" }} />
+            <FavoriteBorderOutlined sx={{ color: "#adadaf" }} />
           </NavLink>
           <NavLink to="/profile">
-            <Person2OutlinedIcon sx={{ color: "#adadaf" }} />
+            <Person2Outlined sx={{ color: "#adadaf" }} />
           </NavLink>
           <NavLink to="/history">
-            <HistoryRoundedIcon sx={{ color: "#adadaf" }} />
+            <HistoryRounded sx={{ color: "#adadaf" }} />
           </NavLink>
         </div>
       </div>

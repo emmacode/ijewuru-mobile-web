@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
+import { RestaurantMenuOutlined } from "@mui/icons-material";
 
 import profileIcon from "../asset/image/profileIcon.svg";
 import orderIcon from "../asset/image/orderIcon.svg";
@@ -7,7 +8,6 @@ import offerIcon from "../asset/image/orderIcon.svg";
 import privacyIcon from "../asset/image/privacyIcon.svg";
 import securityIcon from "../asset/image/securityIcon.svg";
 import forwardArrow from "../asset/image/forwardarrow.svg";
-import { Link } from "react-router-dom";
 
 interface MenuContentProps {
   handleClose: () => void;
@@ -45,7 +45,7 @@ export const MenuContent = ({
     <>
       <Panel style={sidepanelStyle}>
         <div className="flex justify-end pt-2 pr-2">
-          <CloseIcon
+          <RestaurantMenuOutlined
             onClick={handleClose}
             className="text-white cursor-pointer"
             sx={{ width: 35, height: 35 }}
@@ -75,4 +75,5 @@ const Panel = styled.div`
   left: 0;
   background-color: #fa4a0c;
   overflow-x: hidden;
+  transition: 0.5s;
 `;
