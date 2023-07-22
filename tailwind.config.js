@@ -17,7 +17,8 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '0px 4px 30px 0px rgba(0, 0, 0, 0.06)',
-        'profile': '0px 10px 40px 0px rgba(0, 0, 0, 0.03)'
+        'profile': '0px 10px 40px 0px rgba(0, 0, 0, 0.03)',
+        'tabitem': '0px 30px 60px 0px rgba(57, 57, 57, 0.01)'
       }
     },
   },

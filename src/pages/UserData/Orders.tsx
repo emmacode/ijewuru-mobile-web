@@ -3,7 +3,6 @@ import { ChevronLeft } from "@mui/icons-material";
 
 import carticon from "../../asset/image/carticon.svg";
 import { buttonClass } from "../classnames";
-import { NoNetwork } from "../../component/NoNetwork";
 
 export const Orders = () => {
   const navigate = useNavigate();
