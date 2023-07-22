@@ -44,7 +44,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="bg-[#F2F2F2] pt-[50px] pb-2 flex flex-col h-screen">
+      <div className="bg-[#F2F2F2] pt-[50px] pb-2 flex flex-col h-full">
         <div className="flex justify-between mx-[30px]">
           <div>
             <MenuOutlined
@@ -77,7 +77,7 @@ export const Home = () => {
           <Search />
         </div>
 
-        <div className="mt-11 mx-[30px]">
+        <div className="mt-11 mb-14 mx-[30px]">
           <ItemsTab tabs={tabs} />
         </div>
 

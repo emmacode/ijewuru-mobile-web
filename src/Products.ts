@@ -5,7 +5,7 @@ import food4 from "./asset/image/products/ricebean.jpeg";
 import food5 from "./asset/image/products/riceelewe.jpeg";
 import food6 from "./asset/image/products/ricenoodles.jpeg";
 
-import drink1 from "./asset/image/products/henessy.jpeg";
+import drink1 from "./asset/image/products/hennessy.jpeg";
 import drink2 from "./asset/image/products/pepsi.jpeg";
 import drink3 from "./asset/image/products/zerocoke.jpeg";
 import drink4 from "./asset/image/products/schwepps.jpeg";
@@ -17,128 +17,174 @@ import snacks2 from "./asset/image/products/popcorn.jpeg";
 import snacks3 from "./asset/image/products/kitkat.jpeg";
 import snacks4 from "./asset/image/products/doughnut.jpeg";
 import snacks5 from "./asset/image/products/baked.jpeg";
-import snacks6 from "./asset/image/products/crave.jpeg";
+import snacks6 from "./asset/image/products/biscuit.jpeg";
+
+import sauce1 from "./asset/image/products/efo.jpeg";
+import sauce2 from "./asset/image/products/banga.jpg";
+import sauce3 from "./asset/image/products/edikaikong.jpeg";
+import sauce4 from "./asset/image/products/egusi.jpeg";
+import sauce5 from "./asset/image/products/whitesoup.jpeg";
+import sauce6 from "./asset/image/products/ofadasauce.jpeg";
 
 export interface ProductProps {
   id: number;
-  productName: string;
+  name: string;
   price: string;
-  productImage: string;
+  image: string;
 }
 
 export const foods: ProductProps[] = [
   {
     id: 1,
-    productName: "Brown Rice",
-    price: "N1500.0",
-    productImage: food1,
+    name: "Brown Rice",
+    price: "N 1500.0",
+    image: food1,
   },
   {
     id: 2,
-    productName: "Crayfish Rice",
-    price: "N1700.0",
-    productImage: food2,
+    name: "Crayfish Rice",
+    price: "N 1700.0",
+    image: food2,
   },
   {
     id: 3,
-    productName: "India Rice",
-    price: "N3500.0",
-    productImage: food3,
+    name: "India Rice",
+    price: "N 3500.0",
+    image: food3,
   },
   {
     id: 4,
-    productName: "Beans & Rice",
-    price: "N1200.0",
-    productImage: food4,
+    name: "Beans & Rice",
+    price: "N 1200.0",
+    image: food4,
   },
   {
     id: 5,
-    productName: "Rice Elewe",
-    price: "N2000.0",
-    productImage: food5,
+    name: "Rice Elewe",
+    price: "N 2000.0",
+    image: food5,
   },
   {
     id: 6,
-    productName: "Rice & Noodles",
-    price: "N1500.0",
-    productImage: food6,
+    name: "Rice & Noodles",
+    price: "N 1500.0",
+    image: food6,
   },
 ];
 
-export const Drinks: ProductProps[] = [
+export const drinks: ProductProps[] = [
   {
     id: 1,
-    productName: "Henessy",
+    name: "Henessy",
     price: "$800.00",
-    productImage: drink1,
+    image: drink1,
   },
   {
     id: 2,
-    productName: "Pepsi",
+    name: "Pepsi",
     price: "$5.00",
-    productImage: drink2,
+    image: drink2,
   },
   {
     id: 3,
-    productName: "Zero Coke",
+    name: "Zero Coke",
     price: "$10.00",
-    productImage: drink3,
+    image: drink3,
   },
   {
     id: 4,
-    productName: "Schwepps",
+    name: "Schwepps",
     price: "$800.00",
-    productImage: drink4,
+    image: drink4,
   },
   {
     id: 5,
-    productName: "Fanta",
+    name: "Fanta",
     price: "$5.00",
-    productImage: drink5,
+    image: drink5,
   },
   {
     id: 6,
-    productName: "Sprite",
+    name: "Sprite",
     price: "$5.00",
-    productImage: drink6,
+    image: drink6,
   },
 ];
 
-export const Snacks: ProductProps[] = [
+export const snacks: ProductProps[] = [
   {
     id: 1,
-    productName: "Snickers",
+    name: "Snickers",
     price: "$2.50",
-    productImage: snacks1,
+    image: snacks1,
   },
   {
     id: 2,
-    productName: "Popcorn",
+    name: "Popcorn",
     price: "$1.50",
-    productImage: snacks2,
+    image: snacks2,
   },
   {
     id: 3,
-    productName: "Kitkat",
+    name: "Kitkat",
     price: "$1.00",
-    productImage: snacks3,
+    image: snacks3,
   },
   {
     id: 4,
-    productName: "Doughnut",
+    name: "Doughnut",
     price: "$2.00",
-    productImage: snacks4,
+    image: snacks4,
   },
   {
     id: 5,
-    productName: "Baked",
+    name: "Baked",
     price: "$3.00",
-    productImage: snacks5,
+    image: snacks5,
   },
   {
     id: 6,
-    productName: "Crave",
+    name: "Crave",
     price: "$2.00",
-    productImage: snacks6,
+    image: snacks6,
+  },
+];
+
+export const sauce: ProductProps[] = [
+  {
+    id: 1,
+    name: "Efo Riro",
+    price: "$6.50",
+    image: sauce1,
+  },
+  {
+    id: 2,
+    name: "Banga",
+    price: "$8.00",
+    image: sauce2,
+  },
+  {
+    id: 3,
+    name: "Edikaikong",
+    price: "$5.00",
+    image: sauce3,
+  },
+  {
+    id: 4,
+    name: "Egusi",
+    price: "$4.00",
+    image: sauce4,
+  },
+  {
+    id: 5,
+    name: "White Soup",
+    price: "$9.00",
+    image: sauce5,
+  },
+  {
+    id: 6,
+    name: "Ofada Sauce",
+    price: "$7.50",
+    image: sauce6,
   },
 ];
