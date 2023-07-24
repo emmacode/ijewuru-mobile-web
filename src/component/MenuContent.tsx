@@ -76,4 +76,17 @@ const Panel = styled.div`
   background-color: #fa4a0c;
   overflow-x: hidden;
   transition: 0.5s;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+  }
 `;

@@ -7,9 +7,9 @@ import {
   FavoriteBorderOutlined,
 } from "@mui/icons-material";
 
-import swipe from "../asset/image/swipe.svg";
-import food from "../asset/image/fooddisplay.jpeg";
-import { buttonClass } from "./classnames";
+import swipe from "../../asset/image/swipe.svg";
+import food from "../../asset/image/fooddisplay.jpeg";
+import { buttonClass } from "../classnames";
 
 const sample = [
   {

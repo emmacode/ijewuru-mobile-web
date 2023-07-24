@@ -74,37 +74,37 @@ export const foods: ProductProps[] = [
 
 export const drinks: ProductProps[] = [
   {
-    id: 1,
+    id: 7,
     name: "Henessy",
     price: "$800.00",
     image: drink1,
   },
   {
-    id: 2,
+    id: 8,
     name: "Pepsi",
     price: "$5.00",
     image: drink2,
   },
   {
-    id: 3,
+    id: 9,
     name: "Zero Coke",
     price: "$10.00",
     image: drink3,
   },
   {
-    id: 4,
+    id: 10,
     name: "Schwepps",
     price: "$800.00",
     image: drink4,
   },
   {
-    id: 5,
+    id: 11,
     name: "Fanta",
     price: "$5.00",
     image: drink5,
   },
   {
-    id: 6,
+    id: 12,
     name: "Sprite",
     price: "$5.00",
     image: drink6,
@@ -113,37 +113,37 @@ export const drinks: ProductProps[] = [
 
 export const snacks: ProductProps[] = [
   {
-    id: 1,
+    id: 13,
     name: "Snickers",
     price: "$2.50",
     image: snacks1,
   },
   {
-    id: 2,
+    id: 14,
     name: "Popcorn",
     price: "$1.50",
     image: snacks2,
   },
   {
-    id: 3,
+    id: 15,
     name: "Kitkat",
     price: "$1.00",
     image: snacks3,
   },
   {
-    id: 4,
+    id: 16,
     name: "Doughnut",
     price: "$2.00",
     image: snacks4,
   },
   {
-    id: 5,
+    id: 17,
     name: "Baked",
     price: "$3.00",
     image: snacks5,
   },
   {
-    id: 6,
+    id: 18,
     name: "Crave",
     price: "$2.00",
     image: snacks6,
@@ -152,37 +152,37 @@ export const snacks: ProductProps[] = [
 
 export const sauce: ProductProps[] = [
   {
-    id: 1,
+    id: 19,
     name: "Efo Riro",
     price: "$6.50",
     image: sauce1,
   },
   {
-    id: 2,
+    id: 20,
     name: "Banga",
     price: "$8.00",
     image: sauce2,
   },
   {
-    id: 3,
+    id: 21,
     name: "Edikaikong",
     price: "$5.00",
     image: sauce3,
   },
   {
-    id: 4,
+    id: 22,
     name: "Egusi",
     price: "$4.00",
     image: sauce4,
   },
   {
-    id: 5,
+    id: 23,
     name: "White Soup",
     price: "$9.00",
     image: sauce5,
   },
   {
-    id: 6,
+    id: 24,
     name: "Ofada Sauce",
     price: "$7.50",
     image: sauce6,
