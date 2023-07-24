@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import {
   ChevronLeft,
@@ -6,12 +7,13 @@ import {
   Favorite,
 } from "@mui/icons-material";
 
-import food from "../asset/image/fooddisplay.jpeg";
 import { buttonClass } from "./classnames";
-import { useNavigate } from "react-router-dom";
+import { foods, drinks, snacks, sauce, ProductProps } from "../Products";
 
 export const ItemDetails = () => {
   const [isAddedToFavorite, setIsAddedToFavorite] = useState(false);
+  const { id } = useParams<{ id: string }>();
+  const itemId = parseInt(id || "", 10);
 
   const handleAddToFavorite = () => {
     setIsAddedToFavorite(true);
@@ -20,6 +22,16 @@ export const ItemDetails = () => {
     setIsAddedToFavorite(false);
   };
   const navigate = useNavigate();
+
+  const findItemById = (itemId: number): ProductProps | undefined => {
+    const allItems = [...foods, ...drinks, ...snacks, ...sauce];
+    return allItems.find((item) => item.id === itemId);
+  };
+  const item = findItemById(itemId);
+
+  if (!item) {
+    return <div>Item not found</div>;
+  }
 
   return (
     <>
@@ -38,11 +50,11 @@ export const ItemDetails = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center mt-10">
-          <img src={food} alt="" />
-          <h1 className="font-pop font-semibold text-2xl mt-10">
-            Veggie tomato mix
-          </h1>
-          <p className="font-pop font-bold text-pc text-[22px] mt-5">N1,900</p>
+          <img src={item.image} alt="" />
+          <h1 className="font-pop font-semibold text-2xl mt-10">{item.name}</h1>
+          <p className="font-pop font-bold text-pc text-[22px] mt-5">
+            {item.price}
+          </p>
         </div>
 
         <div className="flex flex-col mt-10">

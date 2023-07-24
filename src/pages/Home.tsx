@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   MenuOutlined,
   ShoppingCartOutlined,
@@ -60,7 +60,9 @@ export const Home = () => {
             )}
           </div>
           <div>
-            <ShoppingCartOutlined sx={{ color: "#adadaf", width: "24px" }} />
+            <Link to="/cart">
+              <ShoppingCartOutlined sx={{ color: "#adadaf", width: "24px" }} />
+            </Link>
           </div>
         </div>
 
@@ -77,7 +79,7 @@ export const Home = () => {
           <Search />
         </div>
 
-        <div className="mt-11 mb-14 mx-[30px]">
+        <div className="mt-11 mb-14 ml-[30px]">
           <ItemsTab tabs={tabs} />
         </div>
       </div>

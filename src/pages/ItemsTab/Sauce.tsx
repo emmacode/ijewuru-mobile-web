@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { ProductProps, sauce } from "../../Products";
 
@@ -6,6 +7,7 @@ export const Sauce = () => {
   const renderedSauce = firstThreeItems.map((sauce) => {
     return (
       <Card
+        to={`/item/${sauce.id}`}
         key={sauce.id}
         className="flex flex-col items-center shadow-tabitem bg-white rounded-[30px] text-center px-6 pb-10"
       >
@@ -19,10 +21,10 @@ export const Sauce = () => {
   });
 
   return (
-    <div>
-      <p className="font-pop font-normal text-[15px] text-center text-pc">
+    <div className="text-center">
+      <Link to="/sauce" className="font-pop font-normal text-[15px] text-pc">
         see more
-      </p>
+      </Link>
       <div className="flex flex-row overflow-x-auto mt-5 pt-[60px]">
         {renderedSauce}
       </div>
@@ -30,12 +32,8 @@ export const Sauce = () => {
   );
 };
 
-const Card = styled.div`
-  margin-right: 36px;
-
-  &:last-child {
-    margin-right: 0;
-  }
+const Card = styled(Link)`
+  margin-right: 30px;
 
   & img {
     width: 164px;
