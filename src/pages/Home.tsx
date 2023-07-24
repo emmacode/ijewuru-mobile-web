@@ -44,7 +44,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="bg-[#F2F2F2] pt-[50px] pb-2 flex flex-col h-full">
+      <div className="bg-[#F2F2F2] pt-[20px] pb-2 flex flex-col h-full">
         <div className="flex justify-between mx-[30px]">
           <div>
             <MenuOutlined
@@ -80,7 +80,9 @@ export const Home = () => {
         <div className="mt-11 mb-14 mx-[30px]">
           <ItemsTab tabs={tabs} />
         </div>
-
+      </div>
+      {/*  */}
+      <div className="fixed w-full bottom-0 left-0 p-2 bg-white border-t border-solid border-hr ">
         <div className="flex justify-between mt-auto mx-[30px]">
           <NavLink to="/">
             <HomeOutlined sx={{ color: "#adadaf" }} />
