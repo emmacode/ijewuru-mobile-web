@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {
@@ -7,48 +7,35 @@ import {
   FavoriteBorderOutlined,
 } from "@mui/icons-material";
 
+import { useAppContext } from "../../hooks/useAppContext";
+import { AppContextProps } from "../../context/appContext";
+import { foods, drinks, snacks, sauce } from "../../Products";
+
 import swipe from "../../asset/image/swipe.svg";
-import food from "../../asset/image/fooddisplay.jpeg";
-import { buttonClass } from "../classnames";
+import { Footer } from "../../component/Footer";
 
-const sample = [
-  {
-    id: 1,
-    image: food,
-    title: "Veggie tomato mix",
-    amount: "N1,900",
-  },
-  {
-    id: 2,
-    image: food,
-    title: "Fish with mix orange",
-    amount: "N1,900",
-  },
-  {
-    id: 3,
-    image: food,
-    title: "Last sample jellof wrice :)",
-    amount: "N1,900",
-  },
-];
+export const Cart: React.FC = () => {
+  const {
+    cartItems,
+    favouriteItems,
+    addToCart,
+    addToFavourite,
+    removeFromCart,
+    updateCartItemCount,
+    getTotalCartAmount,
+  } = useAppContext() as AppContextProps;
+  const totalAmount = getTotalCartAmount();
 
-export const Cart = () => {
-  const [quantity, setQuantity] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const allItems = [...foods, ...drinks, ...snacks, ...sauce];
 
   const navigate = useNavigate();
   const maxLength = 10;
   const minSwipeDistance = -30;
   let downX: number;
-
-  const increase = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decrease = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
 
   const onPointerMove = (e: any) => {
     const newX = e.clientX;
@@ -70,52 +57,95 @@ export const Cart = () => {
     e.currentTarget.style.transform = "translateX(0)";
   };
 
-  const renderedItems = sample.map((sam) => {
-    const shortenedTitle =
-      sam.title.length > maxLength
-        ? sam.title.substring(0, maxLength) + "..."
-        : sam.title;
+  const handleDeleteItem = (itemId: number) => {
+    removeFromCart(itemId);
+  };
 
-    return (
-      <Wrapper key={sam.id}>
-        <ItemWrapper
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerDown={onPointerDown}
-        >
-          <div className="flex mr-6 flex-[1_0_79%] flex-row p-[12px] bg-white rounded-2xl shadow-profile">
-            <img
-              src={sam.image}
-              alt=""
-              className="w-[69.21px] rounded-full shadow-profile"
-            />
-            <div className="flex flex-col w-full ml-7">
-              <h1 className="font-pop font-semibold text-[17px]">
-                {shortenedTitle}
-              </h1>
-              <div className="flex justify-between items-center mt-2">
-                <p className="font-pop font-semibold text-[15px] text-pc">
-                  {sam.amount}
-                </p>
-                <div className="font-pop font-semibold bg-pc text-white text-[13px] rounded-[30px] px-[9px] py-1">
-                  <Button onClick={decrease}>-</Button>
-                  <span className="mx-2">{quantity}</span>
-                  <Button onClick={increase}>+</Button>
+  const renderedItems = allItems.map((product) => {
+    if (cartItems[product.id] !== 0) {
+      const shortenedTitle =
+        product.name.length > maxLength
+          ? product.name.substring(0, maxLength) + "..."
+          : product.name;
+      const isItemInFavourite = favouriteItems[product.id] > 0;
+
+      return (
+        <Wrapper key={product.id}>
+          <ItemWrapper
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerDown={onPointerDown}
+          >
+            <div className="flex mr-10 flex-[1_0_79%] flex-row p-[9px] bg-white rounded-2xl shadow-profile">
+              <img
+                src={product.image}
+                alt=""
+                className="w-[69.21px] rounded-full shadow-profile"
+              />
+              <div className="flex flex-col w-full ml-3">
+                <h1 className="font-pop font-semibold text-[17px]">
+                  {shortenedTitle}
+                </h1>
+                <div className="flex justify-between items-center mt-2">
+                  <p className="font-pop font-semibold text-[15px] text-pc">
+                    {product.price}
+                  </p>
+                  <div>
+                    <Button
+                      className="bg-pc text-white px-2"
+                      onClick={() => removeFromCart(product.id)}
+                    >
+                      -
+                    </Button>
+                    <input
+                      value={cartItems[product.id]}
+                      className="w-[30px] bg-transparent border outline-none"
+                      onChange={(e) =>
+                        updateCartItemCount(Number(e.target.value), product.id)
+                      }
+                    />
+                    <Button
+                      className="bg-pc text-white px-2"
+                      onClick={() => addToCart(product.id)}
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-row items-center">
-            <div className="p-4 bg-[#df2c2c] mr-[15px] rounded-full">
-              <FavoriteBorderOutlined className="text-white" />
+            <div className="flex flex-row items-center">
+              <div className="p-4 bg-[#df2c2c] mr-[15px] rounded-full">
+                {isItemInFavourite ? (
+                  <button
+                    className="outline-none border-none bg-transparent"
+                    disabled={isItemInFavourite}
+                  >
+                    <FavoriteBorderOutlined className="text-white" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => addToFavourite(product.id)}
+                    className="outline-none border-none bg-transparent"
+                  >
+                    <FavoriteBorderOutlined className="text-white" />
+                  </button>
+                )}
+              </div>
+              <div className="p-4 bg-[#df2c2c] rounded-full">
+                <button
+                  onClick={() => handleDeleteItem(product.id)}
+                  className="outline-none border-none bg-transparent"
+                >
+                  <DeleteForeverOutlined className="text-white" />
+                </button>
+              </div>
             </div>
-            <div className="p-4 bg-[#df2c2c] rounded-full">
-              <DeleteForeverOutlined className="text-white" />
-            </div>
-          </div>
-        </ItemWrapper>
-      </Wrapper>
-    );
+          </ItemWrapper>
+        </Wrapper>
+      );
+    }
+    return null;
   });
 
   return (
@@ -137,9 +167,27 @@ export const Cart = () => {
 
         {renderedItems}
         <div className="flex justify-center mt-10">
-          <button className={buttonClass}>Complete order</button>
+          {totalAmount > 0 ? (
+            <div className="flex flex-col items-center">
+              <p className="font-pop font-semibold text-[15px] opacity-50 text-center">
+                Subtotal: ${totalAmount}
+              </p>
+              <button
+                className="bg-black text-white font-pop text-base py-2 px-4 outline-none rounded"
+                onClick={() => navigate("/")}
+              >
+                Continue Shopping
+              </button>
+              <button className="bg-pc text-white font-pop text-base mt-3 py-2 px-4 outline-none rounded">
+                Complete order
+              </button>
+            </div>
+          ) : (
+            <h1>Your Cart is empty</h1>
+          )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
@@ -151,7 +199,7 @@ const Wrapper = styled.div`
 const ItemWrapper = styled.div`
   display: flex;
   transition: transform 800ms;
-  width: max-content;
+  width: 377px;
   margin-top: 20px;
 `;
 

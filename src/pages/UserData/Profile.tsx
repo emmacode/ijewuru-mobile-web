@@ -7,6 +7,7 @@ import { ChevronLeft } from "@mui/icons-material";
 import avatar from "../../asset/image/avatar.svg";
 import edit from "../../asset/image/editIcon.svg";
 import { buttonClass } from "../classnames";
+import { Footer } from "../../component/Footer";
 // import cardIcon from "../asset/image/cardIcon.svg";
 // import bankIcon from "../asset/image/bankIcon.svg";
 // import paypalIcon from "../asset/image/paypalIcon.svg";
@@ -129,6 +130,7 @@ export const Profile = () => {
           <button className={buttonClass}>Update</button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

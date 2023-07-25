@@ -3,6 +3,7 @@ import { ChevronLeft } from "@mui/icons-material";
 
 import historyicon from "../../asset/image/historyicon.svg";
 import { buttonClass } from "../classnames";
+import { Footer } from "../../component/Footer";
 
 export const History = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const History = () => {
           <button className={buttonClass}>Start ordering</button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -17,29 +17,31 @@ import { FoodLog } from "./pages/FoodLog";
 import { DrinkLog } from "./pages/DrinkLog";
 import { SnackLog } from "./pages/SnackLog";
 import { SauceLog } from "./pages/SauceLog";
+import { AppContextProvider } from "./context/appContext";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/favourite" element={<Favourite />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/offers" element={<Offer />} />
-        <Route path="/item/:id" element={<ItemDetails />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/food" element={<FoodLog />} />
-        <Route path="/drink" element={<DrinkLog />} />
-        <Route path="/snack" element={<SnackLog />} />
-        <Route path="/sauce" element={<SauceLog />} />
-
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Routes>
-    </Router>
+    <AppContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/favourite" element={<Favourite />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/offers" element={<Offer />} />
+          <Route path="/item/:id" element={<ItemDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/food" element={<FoodLog />} />
+          <Route path="/drink" element={<DrinkLog />} />
+          <Route path="/snack" element={<SnackLog />} />
+          <Route path="/sauce" element={<SauceLog />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
+        </Routes>
+      </Router>
+    </AppContextProvider>
   );
 }
 
