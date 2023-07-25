@@ -28,7 +28,9 @@ export const History = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          <button className={buttonClass}>Start ordering</button>
+          <button onClick={() => navigate("/")} className={buttonClass}>
+            Start ordering
+          </button>
         </div>
       </div>
       <Footer />
