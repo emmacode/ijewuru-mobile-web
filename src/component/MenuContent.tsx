@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { RestaurantMenuOutlined } from "@mui/icons-material";
 
 import profileIcon from "../asset/image/profileIcon.svg";
 import orderIcon from "../asset/image/orderIcon.svg";
@@ -10,14 +9,10 @@ import securityIcon from "../asset/image/securityIcon.svg";
 import forwardArrow from "../asset/image/forwardarrow.svg";
 
 interface MenuContentProps {
-  handleClose: () => void;
-  sidepanelStyle: React.CSSProperties;
+  isOpen: boolean;
 }
 
-export const MenuContent = ({
-  handleClose,
-  sidepanelStyle,
-}: MenuContentProps) => {
+export const MenuContent = ({ isOpen }: MenuContentProps) => {
   const sidebarLinks = [
     { icon: profileIcon, label: "Profile", path: "/profile" },
     { icon: orderIcon, label: "Orders", path: "/orders" },
@@ -43,14 +38,8 @@ export const MenuContent = ({
 
   return (
     <>
-      <Panel style={sidepanelStyle}>
-        <div className="flex justify-end pt-2 pr-2">
-          <RestaurantMenuOutlined
-            onClick={handleClose}
-            className="text-white cursor-pointer"
-            sx={{ width: 35, height: 35 }}
-          />
-        </div>
+      <Panel isOpen={isOpen}>
+        <div className="flex justify-end pt-2 pr-2"></div>
         <div className="pt-5 px-9 pb-24 flex flex-col h-screen">
           <div className="mt-16">{renderedLinks}</div>
 
@@ -66,16 +55,15 @@ export const MenuContent = ({
   );
 };
 
-const Panel = styled.div`
-  width: 0;
+const Panel = styled.div<{ isOpen: boolean }>`
   position: fixed;
   z-index: 1;
   height: 100%;
   top: 0;
-  left: 0;
+  left: ${(props) => (props.isOpen ? "0" : "-250px")};
   background-color: #fa4a0c;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: left 0.5s;
 
   &::-webkit-scrollbar {
     width: 5px;
