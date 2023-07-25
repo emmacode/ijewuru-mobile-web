@@ -30,7 +30,7 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="px-[30px] py-14 bg-[#f5f5f8] h-screen">
+      <div className="px-[30px] py-14">
         <div className="flex flex-row items-center">
           <ChevronLeft onClick={() => navigate(-1)} />
           <p className="flex justify-center w-full text-black text-lg font-semibold">

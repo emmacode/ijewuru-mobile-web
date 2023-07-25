@@ -45,7 +45,7 @@ export const ItemDetails: React.FC = () => {
 
   return (
     <>
-      <div className="px-[30px] py-14 bg-[#f5f5f8] h-full">
+      <div className="px-[30px] py-14">
         <div className="flex justify-between items-center">
           <ChevronLeft onClick={() => navigate(-1)} />
           {isItemInFavourite ? (
@@ -70,7 +70,7 @@ export const ItemDetails: React.FC = () => {
         <div className="flex flex-col mt-10">
           <h1 className="font-pop font-semibold text-[17px]">Delivery info</h1>
           <p className="font-pop font-normal text-[15px] opacity-50 mt-2">
-            Delivered between monday aug and thursday 20 from 8pm to 91:32 pm
+            Delivery time is 10am - 9pm, Monday - Saturday
           </p>
         </div>
 
