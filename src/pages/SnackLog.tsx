@@ -27,7 +27,7 @@ export const SnackLog = () => {
 
   return (
     <>
-      <div className="bg-[#f5f5f8] h-full pt-10 pb-20 px-5">
+      <div className="pt-10 pb-20 px-5">
         <div className="flex flex-row items-center">
           <ChevronLeft onClick={() => navigate(-1)} />
           <p className="flex justify-center w-full text-black text-lg font-semibold">

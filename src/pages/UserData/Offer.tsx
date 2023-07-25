@@ -7,7 +7,7 @@ export const Offer = () => {
 
   return (
     <>
-      <div className="bg-[#F5F5F8] pt-14 px-10 h-screen">
+      <div className="pt-14 px-10">
         <img src={chevronleft} alt="" onClick={() => navigate(-1)} />
         <h1 className="mt-10 text-3xl font-pop font-medium">My offers</h1>
 
