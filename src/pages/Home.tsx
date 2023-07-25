@@ -39,10 +39,8 @@ export const Home = () => {
       <div className="bg-[#f2f2f2] pt-[20px] pb-2 flex flex-col h-full">
         <div className="flex justify-between mx-[30px]">
           <div className="mt-2">
-            <MenuLabel>
-              <Icon onClick={handleOpen} clicked={isOpen}>
-                &nbsp;
-              </Icon>
+            <MenuLabel onClick={handleOpen}>
+              <Icon clicked={isOpen}>&nbsp;</Icon>
             </MenuLabel>
 
             <MenuContent isOpen={isOpen} />
