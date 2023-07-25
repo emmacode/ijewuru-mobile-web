@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import {
@@ -7,20 +7,27 @@ import {
   Favorite,
 } from "@mui/icons-material";
 
-import { buttonClass } from "./classnames";
+import { blurClass, buttonClass } from "./classnames";
 import { foods, drinks, snacks, sauce, ProductProps } from "../Products";
+import { useAppContext } from "../hooks/useAppContext";
+import { AppContextProps } from "../context/appContext";
+import { Footer } from "../component/Footer";
 
-export const ItemDetails = () => {
-  const [isAddedToFavorite, setIsAddedToFavorite] = useState(false);
+export const ItemDetails: React.FC = () => {
+  const {
+    addToCart,
+    cartItems,
+    addToFavourite,
+    favouriteItems,
+    removeFromFavourite,
+  } = useAppContext() as AppContextProps;
   const { id } = useParams<{ id: string }>();
   const itemId = parseInt(id || "", 10);
 
-  const handleAddToFavorite = () => {
-    setIsAddedToFavorite(true);
-  };
-  const handleRemoveFromFavorite = () => {
-    setIsAddedToFavorite(false);
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
 
   const findItemById = (itemId: number): ProductProps | undefined => {
@@ -33,17 +40,20 @@ export const ItemDetails = () => {
     return <div>Item not found</div>;
   }
 
+  const isItemInCart = cartItems[item.id] > 0;
+  const isItemInFavourite = favouriteItems[item.id] > 0;
+
   return (
     <>
       <div className="px-[30px] py-14 bg-[#f5f5f8] h-full">
         <div className="flex justify-between items-center">
           <ChevronLeft onClick={() => navigate(-1)} />
-          {isAddedToFavorite ? (
-            <FavButton onClick={handleRemoveFromFavorite}>
+          {isItemInFavourite ? (
+            <FavButton onClick={() => removeFromFavourite(item.id)}>
               <Favorite className="text-pc" />
             </FavButton>
           ) : (
-            <FavButton onClick={handleAddToFavorite}>
+            <FavButton onClick={() => addToFavourite(item.id)}>
               <FavoriteBorderOutlined />
             </FavButton>
           )}
@@ -53,7 +63,7 @@ export const ItemDetails = () => {
           <img src={item.image} alt="" />
           <h1 className="font-pop font-semibold text-2xl mt-10">{item.name}</h1>
           <p className="font-pop font-bold text-pc text-[22px] mt-5">
-            {item.price}
+            $ {item.price}
           </p>
         </div>
 
@@ -73,9 +83,16 @@ export const ItemDetails = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          <button className={buttonClass}>Add to cart</button>
+          <button
+            onClick={() => addToCart(item.id)}
+            disabled={isItemInCart}
+            className={isItemInCart ? blurClass : buttonClass}
+          >
+            {isItemInCart ? "Added to Cart" : "Add to Cart"}
+          </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

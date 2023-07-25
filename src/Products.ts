@@ -29,7 +29,7 @@ import sauce6 from "./asset/image/products/ofadasauce.jpeg";
 export interface ProductProps {
   id: number;
   name: string;
-  price: string;
+  price: number;
   image: string;
 }
 
@@ -37,37 +37,37 @@ export const foods: ProductProps[] = [
   {
     id: 1,
     name: "Brown Rice",
-    price: "N 1500.0",
+    price: 15.0,
     image: food1,
   },
   {
     id: 2,
     name: "Crayfish Rice",
-    price: "N 1700.0",
+    price: 17.0,
     image: food2,
   },
   {
     id: 3,
     name: "India Rice",
-    price: "N 3500.0",
+    price: 35.0,
     image: food3,
   },
   {
     id: 4,
     name: "Beans & Rice",
-    price: "N 1200.0",
+    price: 12.0,
     image: food4,
   },
   {
     id: 5,
     name: "Rice Elewe",
-    price: "N 2000.0",
+    price: 20.0,
     image: food5,
   },
   {
     id: 6,
     name: "Rice & Noodles",
-    price: "N 1500.0",
+    price: 15.0,
     image: food6,
   },
 ];
@@ -76,37 +76,37 @@ export const drinks: ProductProps[] = [
   {
     id: 7,
     name: "Henessy",
-    price: "$800.00",
+    price: 800.0,
     image: drink1,
   },
   {
     id: 8,
     name: "Pepsi",
-    price: "$5.00",
+    price: 5.0,
     image: drink2,
   },
   {
     id: 9,
     name: "Zero Coke",
-    price: "$10.00",
+    price: 10.0,
     image: drink3,
   },
   {
     id: 10,
     name: "Schwepps",
-    price: "$800.00",
+    price: 800.0,
     image: drink4,
   },
   {
     id: 11,
     name: "Fanta",
-    price: "$5.00",
+    price: 5.0,
     image: drink5,
   },
   {
     id: 12,
     name: "Sprite",
-    price: "$5.00",
+    price: 5.0,
     image: drink6,
   },
 ];
@@ -115,37 +115,37 @@ export const snacks: ProductProps[] = [
   {
     id: 13,
     name: "Snickers",
-    price: "$2.50",
+    price: 2.5,
     image: snacks1,
   },
   {
     id: 14,
     name: "Popcorn",
-    price: "$1.50",
+    price: 1.5,
     image: snacks2,
   },
   {
     id: 15,
     name: "Kitkat",
-    price: "$1.00",
+    price: 1.0,
     image: snacks3,
   },
   {
     id: 16,
     name: "Doughnut",
-    price: "$2.00",
+    price: 2.0,
     image: snacks4,
   },
   {
     id: 17,
     name: "Baked",
-    price: "$3.00",
+    price: 3.0,
     image: snacks5,
   },
   {
     id: 18,
     name: "Crave",
-    price: "$2.00",
+    price: 2.0,
     image: snacks6,
   },
 ];
@@ -154,37 +154,37 @@ export const sauce: ProductProps[] = [
   {
     id: 19,
     name: "Efo Riro",
-    price: "$6.50",
+    price: 6.5,
     image: sauce1,
   },
   {
     id: 20,
     name: "Banga",
-    price: "$8.00",
+    price: 8.0,
     image: sauce2,
   },
   {
     id: 21,
     name: "Edikaikong",
-    price: "$5.00",
+    price: 5.0,
     image: sauce3,
   },
   {
     id: 22,
     name: "Egusi",
-    price: "$4.00",
+    price: 4.0,
     image: sauce4,
   },
   {
     id: 23,
     name: "White Soup",
-    price: "$9.00",
+    price: 9.0,
     image: sauce5,
   },
   {
     id: 24,
     name: "Ofada Sauce",
-    price: "$7.50",
+    price: 7.5,
     image: sauce6,
   },
 ];

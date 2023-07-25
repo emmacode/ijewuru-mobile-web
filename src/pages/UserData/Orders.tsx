@@ -3,6 +3,7 @@ import { ChevronLeft } from "@mui/icons-material";
 
 import carticon from "../../asset/image/carticon.svg";
 import { buttonClass } from "../classnames";
+import { Footer } from "../../component/Footer";
 
 export const Orders = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const Orders = () => {
           <button className={buttonClass}>Start ordering</button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

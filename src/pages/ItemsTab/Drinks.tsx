@@ -15,7 +15,9 @@ export const Drinks = () => {
         <h1 className="font-pop font-semibold text-[22px] opacity-80 mt-5">
           {drink.name}
         </h1>
-        <p className="font-pop font-bold text-pc text-[17px]">{drink.price}</p>
+        <p className="font-pop font-bold text-pc text-[17px]">
+          $ {drink.price}
+        </p>
       </Card>
     );
   });

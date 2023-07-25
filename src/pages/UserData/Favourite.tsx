@@ -1,64 +1,66 @@
+import { useEffect } from "react";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "@mui/icons-material";
 
-import food from "../../asset/image/fooddisplay.jpeg";
-
-const sample = [
-  {
-    id: 1,
-    image: food,
-    title: "Veggie tomato mix",
-    amount: "N1,900",
-  },
-  {
-    id: 2,
-    image: food,
-    title: "Fish with mix orange",
-    amount: "N1,900",
-  },
-  {
-    id: 3,
-    image: food,
-    title: "Last sample jellof wrice :)",
-    amount: "N1,900",
-  },
-];
+import { useAppContext } from "../../hooks/useAppContext";
+import { AppContextProps } from "../../context/appContext";
+import { foods, drinks, snacks, sauce } from "../../Products";
+import { Footer } from "../../component/Footer";
 
 export const Favourite = () => {
   const navigate = useNavigate();
+  const { cartItems, favouriteItems, addToCart } =
+    useAppContext() as AppContextProps;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const allItems = [...foods, ...drinks, ...snacks, ...sauce];
   const maxLength = 10;
 
-  const renderedItems = sample.map((sam) => {
-    const shortenedTitle =
-      sam.title.length > maxLength
-        ? sam.title.substring(0, maxLength) + "..."
-        : sam.title;
+  const renderedItems = allItems.map((product) => {
+    if (favouriteItems[product.id] !== 0) {
+      const shortenedTitle =
+        product.name.length > maxLength
+          ? product.name.substring(0, maxLength) + "..."
+          : product.name;
+      const isItemInCart = cartItems[product.id] > 0;
 
-    return (
-      <ItemWrapper key={sam.id}>
-        <div className="flex flex-[1_0_79%] flex-row p-[12px] bg-white rounded-2xl shadow-profile">
-          <img
-            src={sam.image}
-            alt=""
-            className="w-[69.21px] rounded-full shadow-profile"
-          />
-          <div className="flex flex-col w-full ml-7">
-            <h1 className="font-pop font-semibold text-[17px]">
-              {shortenedTitle}
-            </h1>
-            <div className="flex justify-between items-center mt-2">
-              <p className="font-pop font-semibold text-[15px] text-pc">
-                {sam.amount}
-              </p>
-              <div className="font-pop font-semibold bg-pc text-white text-[13px] rounded-[30px] px-[9px] py-1">
-                <Button>Add to Cart</Button>
+      return (
+        <ItemWrapper key={product.id}>
+          <div className="flex flex-[1_0_79%] flex-row p-[12px] bg-white rounded-2xl shadow-profile">
+            <img
+              src={product.image}
+              alt=""
+              className="w-[69.21px] rounded-full shadow-profile"
+            />
+            <div className="flex flex-col w-full ml-7">
+              <h1 className="font-pop font-semibold text-[17px]">
+                {shortenedTitle}
+              </h1>
+              <div className="flex justify-between items-center mt-2">
+                <p className="font-pop font-semibold text-[15px] text-pc">
+                  $ {product.price}
+                </p>
+                <div
+                  className={
+                    isItemInCart
+                      ? "font-pop font-semibold bg-pc opacity-70 text-white text-[13px] rounded-[30px] px-[9px] py-1 cursor-not-allowed"
+                      : "font-pop font-semibold bg-pc text-white text-[13px] rounded-[30px] px-[9px] py-1"
+                  }
+                >
+                  <Button onClick={() => addToCart(product.id)}>
+                    {isItemInCart ? "In cart" : "Add to Cart"}
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </ItemWrapper>
-    );
+        </ItemWrapper>
+      );
+    }
   });
 
   return (
@@ -73,6 +75,7 @@ export const Favourite = () => {
 
         <div className="mt-20">{renderedItems}</div>
       </div>
+      <Footer />
     </>
   );
 };
