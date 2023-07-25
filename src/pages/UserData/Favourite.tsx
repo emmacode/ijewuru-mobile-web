@@ -61,6 +61,7 @@ export const Favourite = () => {
         </ItemWrapper>
       );
     }
+    return null;
   });
 
   return (

@@ -145,6 +145,7 @@ export const Cart: React.FC = () => {
         </Wrapper>
       );
     }
+    return null;
   });
 
   return (
