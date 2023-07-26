@@ -1,14 +1,23 @@
 # About Ijewuru
 
-I saw the design online and it was originally designed for a mobile app. But thought to play around with it on the web using React Js and Typescript.
+Ijewuru was originally a mobile app for a food vendor. Customers can search, place orders for foods, add them to favourites and cart them as well.
+I saw the design online, originally designed for a mobile app, but thought to play around with it on the web(mobile) using React Js and Typescript.
 
-## Available Scripts
+# Web Link (mobile)
 
-In the project directory, you can run:
+[Ijewuru](http://ijewuru.netlify.app/)
+
+# Landing Page 
+
+[Landingpage](https://onofoodie.netlify.app/)
 
 ### Design Link
 
 [figma](https://www.figma.com/file/KawxNnCZ1epHjQu0wSqlG2/Food-delivery-app-Ui-kit?node-id=298%3A40&mode=dev)
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm start`
 
